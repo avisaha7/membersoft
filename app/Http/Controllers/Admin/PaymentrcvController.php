@@ -20,6 +20,7 @@ class PaymentrcvController extends Controller
                 
 
                 ->selectRaw('type, SUM(amount) as totalam')
+                ->where('is_approved', '1')
                 ->groupBy('type')
                 ->get();
 //        dd($total_rcv);

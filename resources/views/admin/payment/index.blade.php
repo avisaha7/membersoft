@@ -16,7 +16,6 @@
                         <span class="badge bg-blue">{{ $payments->count() }}</span>
                     </h2>
                     <br>
-{{--                    <a href="{{route('admin.payment.create')}}" class="btn btn-primary">ADD NEW PAYMENT</a>--}}
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
                             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -35,7 +34,7 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>SL</th>
                                 <th>Name</th>
                                 <th>Title</th>
                                 <th>Amount</th>
@@ -43,10 +42,7 @@
                                 <th>Details</th>
                                 <th>Phone</th>
                                 <th>Status</th>
-{{--                                <th>Status</th>--}}
-                                <th>Created at</th>
-                                <th>Updated at</th>
-                                <th>Action</th>
+                                <th width="20%">Action</th>
 
                             </tr>
                             </thead>
@@ -68,20 +64,14 @@
                                             <span class="badge bg-pink">Pending</span>
                                         @endif
                                     </td>
-{{--                                    <td>--}}
-{{--                                        @if($payment->status == true)--}}
-{{--                                            <span class="badge bg-blue">Published</span>--}}
-{{--                                        @else--}}
-{{--                                            <span class="badge bg-pink">Pending</span>--}}
-{{--                                        @endif--}}
-{{--                                    </td>--}}
-                                    <td>{{ $payment-> created_at }}</td>
-                                    <td>{{ $payment-> updated_at }}</td>
+
+                                 
+                                    
                                     <td class="text-center">
                                         <a href="{{ route('admin.payment.show',$payment->id) }}" class="btn btn-info waves-effect">
                                             <i class="material-icons">visibility</i>
                                         </a>
-                                        <a href="{{ route('admin.payment.edit',$payment->id) }}" class="btn btn-info waves-effect">
+                                        <a href="{{ route('admin.payment.edit',$payment->id) }}" class="btn btn-warning waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
 
@@ -102,7 +92,7 @@
                             <tfoot>
                             <tr>
 
-                                <th>Num</th>
+                                <th>SL</th>
                                 <th>Name</th>
                                 <th>Title</th>
                                 <th>Amount</th>
@@ -110,9 +100,7 @@
                                 <th>Details</th>
                                 <th>Phone</th>
                                 <th>Status</th>
-                                {{--                                <th>Status</th>--}}
-                                <th>Created at</th>
-                                <th>Updated at</th>
+                                                   
                                 <th>Action</th>
                             </tr>
                             </tfoot>

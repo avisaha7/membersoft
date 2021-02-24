@@ -17,6 +17,7 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->decimal('amount');
             $table->string('type');
+            $table->boolean('is_approved')->default(true);
             $table->timestamps();
         });
     }

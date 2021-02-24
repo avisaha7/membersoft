@@ -87,7 +87,9 @@ class PaymentController extends Controller
         $payment->save();
         $totals= new Paymentrcv();
         $totals->amount=$request->amount;
+        $totals->is_approved = false;
         $totals->type='payment';
+        
         $totals->save();
         
 
@@ -97,6 +99,7 @@ class PaymentController extends Controller
         $mainac = new Account();
         $mainac->type = 'MainAC';
         $mainac->amount =$request->amount;
+        $mainac->is_approved = false;
         $mainac->save();
 
 

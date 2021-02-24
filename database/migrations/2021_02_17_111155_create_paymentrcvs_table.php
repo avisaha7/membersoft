@@ -16,6 +16,7 @@ class CreatePaymentrcvsTable extends Migration
         Schema::create('paymentrcvs', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('amount');
+            $table->boolean('is_approved')->default(true);
             $table->string('type');
             $table->timestamps();
         });

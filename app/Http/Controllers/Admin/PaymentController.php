@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Payment;
+use App\Account;
+use App\Paymentrcv;
 use App\Total_pr;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
@@ -144,7 +146,22 @@ class PaymentController extends Controller
     }
 
     public function approval($id)
-    {
+    {   
+        
+        $account=Account::find($id);
+         if ($account->is_approved == false)
+        {
+            $account->is_approved = true;
+            $account->save();
+           
+        }
+        $paymentrcv=  Paymentrcv::find($id);
+         if ($paymentrcv->is_approved == false)
+        {
+            $paymentrcv->is_approved = true;
+            $paymentrcv->save();
+           
+        }
         $payment = Payment::find($id);
         if ($payment->is_approved == false)
         {

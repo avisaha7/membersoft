@@ -7,22 +7,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class AccountController extends Controller
-{
+class AccountController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-           $total_rcv=DB::table('accounts')
-                
-
+    public function index() {
+        $total_rcv = DB::table('accounts')
                 ->selectRaw('type, SUM(amount) as totalam')
+                ->where('is_approved', '1')
                 ->groupBy('type')
                 ->get();
-//        dd($total_rcv);
+        //  dd($total_rcv);
         return view('admin.account.index', compact('total_rcv'));
     }
 
@@ -31,8 +29,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -42,8 +39,7 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -53,8 +49,7 @@ class AccountController extends Controller
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function show(Account $account)
-    {
+    public function show(Account $account) {
         //
     }
 
@@ -64,8 +59,7 @@ class AccountController extends Controller
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $account)
-    {
+    public function edit(Account $account) {
         //
     }
 
@@ -76,8 +70,7 @@ class AccountController extends Controller
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Account $account)
-    {
+    public function update(Request $request, Account $account) {
         //
     }
 
@@ -87,8 +80,8 @@ class AccountController extends Controller
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $account)
-    {
+    public function destroy(Account $account) {
         //
     }
+
 }
